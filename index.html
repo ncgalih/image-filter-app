@@ -9,12 +9,31 @@
         <canvas id="canvas"></canvas> 
         <div class="panel">
             <div class="button-wrap">
-                <label class="button" for="input">Select Image</label>
+                <label class="button" for="input" id="input-btn">Select Image</label>
                 <input id="input" type="file">
             </div>
-            <button id="saturation">DeSaturate</button>
+
+            <br />
+            <div class="setting">
+                <div>
+                    <label for="brightness">brightness</label>
+                    <input id="brightness" type="range" value=0 max=100 min=-80 class="range">
+                </div>
+                <div>
+                    <label for="contrast">contrast</label>
+                    <input id="contrast" type="range" value=0 max=100 min=-90 class="range">
+                </div>
+                <div>
+                    <label for="saturation">saturation</label>
+                    <input id="saturation" type="range" value=100 max=300 min=0 class="range">
+                </div>
+                <div>
+                    <button class="button" id="reset">reset</button>
+                    <a class="button" id="download">Download</button>   
+                </div>
+                
+            </div>
         </div>
-        
         
         <script src="app.js" type="module"></script>
     </body>

@@ -18,11 +18,11 @@ const matrixToImage = (image_data, canvas, type='rgba') => {
     const ctx = canvas.getContext('2d')
     ctx.putImageData(image_data,0,0)
 }
-const transform = (imagedata, transformer) => {
+const transform = (imagedata, ...transformers) => {
     const data = new ImageData(imagedata.width, imagedata.height)
     for (let i = 0; i < imagedata.data.length; i += 4) {
         const value = [imagedata.data[i], imagedata.data[i+1], imagedata.data[i+2], imagedata.data[i+3]]
-        const newValue = transformer(value)
+        const newValue = transformers.reduce((val,transformer)=>transformer(val),value)
         newValue.forEach((val, key)=>{ data.data[i+key] = val })
     }
     return data
